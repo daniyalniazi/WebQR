@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en-us" style="height: 100%;
+margin:0;
+padding:0;">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | QRWeb</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/WebGLVideo.json", {onProgress: UnityProgress});
+    </script>
+  </head>
+  <body style="height: 100%;
+    margin:0;
+    padding:0;">
+     
+    <div class="container_div" style="position:relative; height: 100%;
+    margin:0;
+    padding:0;">
+    <!--<button type="button" onclick="playVid()" style="position: relative; z-index: 100;">Play</button>!-->
+      <div id="videoDiv" class="hover_div" style="position:absolute; height: 100%; width:100%;">
+        <video id="myVideo" style="width:60%;height:60%;position:absolute; z-index:9999;
+        top:0;
+        left:0;
+        right:0;
+        bottom:13%;
+        margin:auto;" loop>
+          <source src="" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+        <script>
+        var v = new Array();
+
+        v[0] = "./video/4.mp4";
+        v[1] = "./video/5.mp4";
+        v[2] = "./video/6.mp4";
+        v[3] = "./video/7.mp4";
+        v[4] = "./video/8.mp4";
+        v[5] = "./video/9.mp4";
+        v[6] = "./video/10.mp4";
+        v[7] = "./video/11.mp4";
+        v[8] = "./video/12.mp4";
+        v[9] = "./video/13.mp4";
+        v[10] = "./video/14.mp4";
+
+        var vid = document.getElementById("myVideo"); 
+        
+        function playVid(videoIndex) {
+          vid.pause();
+          /*var x = document.getElementById("videoDiv");
+          if (x.style.display === "none") {
+            x.style.display = "block";
+          }*/
+          
+          var n = parseInt(videoIndex);
+          var video = document.getElementById('myVideo');
+          video.setAttribute("src", v[n]);
+          
+          //vid.load();
+          vid.play(); 
+        } 
+        
+        function pauseVid() { 
+          vid.pause(); 
+        } 
+        </script>
+      </div>
+  </div>
+    <div class="webgl-content">
+      <div id="unityContainer" style="width: 1920px; height: 1080px"></div>
+    </div>
+  </body>
+</html>
